@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Dash - Productivity Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-actions">
+            <button id="theme-toggle" class="icon-btn" title="Toggle Dark Mode">
+                <span class="theme-icon">☀</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="modal-close" id="close-settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <label for="user-name">Your Name</label>
+                    <input type="text" id="user-name" placeholder="Enter your name" class="setting-input">
+                </div>
+                <div class="setting-item">
+                    <label for="timer-duration">Pomodoro Duration (minutes)</label>
+                    <input type="number" id="timer-duration" min="1" max="60" value="25" class="setting-input">
+                </div>
+                <button id="save-settings" class="btn btn-primary">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Link Modal -->
+    <div id="link-modal" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2>Add Quick Link</h2>
+                <button class="modal-close" id="close-link-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <label for="link-name-input">Link Name</label>
+                    <input type="text" id="link-name-input" placeholder="e.g., Gmail" class="setting-input">
+                </div>
+                <div class="setting-item">
+                    <label for="link-url-input">URL</label>
+                    <input type="url" id="link-url-input" placeholder="https://example.com" class="setting-input">
+                </div>
+                <button id="save-link" class="btn btn-primary">Add Link</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Greeting Card -->
+        <div class="greeting-card">
+            <div class="date-badge" id="current-date">FRIDAY, JUNE 19</div>
+            <h1 id="greeting" class="greeting-text">Good afternoon.</h1>
+            <button id="set-name-btn" class="link-btn">Set your name →</button>
+            <div id="current-time" class="large-time">12:58</div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Timer Card -->
+            <div class="card timer-card">
+                <div class="card-header">
+                    <h3 class="card-title">FOCUS TIMER</h3>
+                    <button id="change-duration-btn" class="link-btn-small">Change duration</button>
+                </div>
+                <div class="timer-display">
+                    <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+                </div>
+                <div class="timer-progress">
+                    <div id="timer-progress-bar" class="timer-progress-fill"></div>
+                </div>
+                <div class="timer-controls">
+                    <button id="start-timer" class="btn btn-orange">Start</button>
+                    <button id="stop-timer" class="btn btn-gray">Pause</button>
+                    <button id="reset-timer" class="btn btn-gray">Reset</button>
+                </div>
+            </div>
+
+            <!-- Todo Card -->
+            <div class="card todo-card">
+                <div class="card-header">
+                    <h3 class="card-title">TO-DO</h3>
+                    <div class="sort-group">
+                        <span class="sort-label">Sort</span>
+                        <select id="sort-todos" class="sort-select">
+                            <option value="default">Newest</option>
+                            <option value="alphabetical">A-Z</option>
+                            <option value="completed">Completed Last</option>
+                            <option value="active">Active First</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="todo-input-container">
+                    <input type="text" id="todo-input" class="todo-input" placeholder="What needs doing?">
+                    <button id="add-todo" class="btn btn-orange-small">Add</button>
+                </div>
+                <div id="todo-empty" class="todo-empty">No tasks yet. Add one above.</div>
+                <ul id="todo-list" class="todo-list"></ul>
+                <div class="todo-stats">
+                    <span id="todo-count">0 tasks</span>
+                    <span class="divider">•</span>
+                    <span id="todo-completed">0 completed</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="card links-card">
+            <div class="card-header">
+                <h3 class="card-title">QUICK LINKS</h3>
+                <button id="add-link-btn" class="link-btn-small">+ Add</button>
+            </div>
+            <div id="links-container" class="links-grid"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
